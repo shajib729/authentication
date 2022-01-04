@@ -13,17 +13,10 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(cors({
-    origin: "https://shajib-auth.herokuapp.com/",
+    origin: "http://localhost:3000",
     methods: "GET,POST,PUT,DELETE",
     credentials: true,
 }))
-
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname,"my-app/build/")))
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname,"my-app",'build','index.html'))
-    })
-}
 
 app.use("/auth",authRoute)
 

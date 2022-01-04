@@ -1,14 +1,16 @@
 const router = require("express").Router();
 const passport = require("passport");
 
-const CLIENT_URL = "https://shajib-auth.herokuapp.com/";
+const CLIENT_URL = "http://localhost:3000/";
 
 router.get("/login/success", (req, res) => {
+//   if (req.user) { 
     res.status(200).json({
       success: true,
       message: "successfull",
       user: req.user,
     });
+//   }
 });
 
 router.get("/login/failed", (req, res) => {
